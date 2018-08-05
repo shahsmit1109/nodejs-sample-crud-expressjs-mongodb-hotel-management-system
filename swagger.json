@@ -1,0 +1,642 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Hotel Management System",
+    "description": "This project is used to manage hotel bookings."
+  },
+  "tags": [
+    {
+      "name": "Hotel Management System",
+      "description": "API for bookings."
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/hotel/list": {
+      "get": {
+        "tags": [
+          "Hotel APIs."
+        ],
+        "description": "This API retrieves list of hotels.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Retrieved hotel List."
+          }
+        }
+      }
+    },
+    "/hotel/show/{id}": {
+      "get": {
+        "tags": [
+          "Hotel APIs."
+        ],
+        "description": "This Api returns hotel Json for given Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Retrieve particular hotel based on Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Executed API."
+          }
+        }
+      }
+    },
+    "/hotel/create": {
+      "post": {
+        "tags": [
+          "Hotel APIs."
+        ],
+        "description": "This Api creates hotel.",
+        "parameters": [
+          {
+            "name": "inputParameters",
+            "in": "body",
+            "description": "Create a new hotel.",
+            "schema": {
+              "$ref": "#/definitions/hotelDTO"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Executed API."
+          }
+        }
+      }
+    },
+    "/hotel/update/{id}": {
+      "post": {
+        "tags": [
+          "Hotel APIs."
+        ],
+        "description": "This Api creates hotel.",
+        "parameters": [
+          {
+            "name": "inputParameters",
+            "in": "body",
+            "description": "Create a new hotel.",
+            "schema": {
+              "$ref": "#/definitions/hotelDTO"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Update existing hotel using Id.",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Executed API."
+          }
+        }
+      }
+    },
+    "/hotel/delete/{id}": {
+      "get": {
+        "tags": [
+          "Hotel APIs."
+        ],
+        "description": "This Api deletes hotel for given Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Delete particular hotel based on Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Executed API."
+          }
+        }
+      }
+    },
+    "/room/list/{hotelId}": {
+      "get": {
+        "tags": [
+          "Room APIs."
+        ],
+        "description": "This API retrieves list of rooms for given hotel.",
+        "parameters": [
+          {
+            "name": "hotelId",
+            "in": "path",
+            "description": "Retrieve rooms based on Hotel Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Retrieved hotel List."
+          }
+        }
+      }
+    },
+    "/room/show/{id}": {
+      "get": {
+        "tags": [
+          "Room APIs."
+        ],
+        "description": "This Api returns Room Json for given Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Retrieve particular rooom based on Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Executed API."
+          }
+        }
+      }
+    },
+    "/room/create": {
+      "post": {
+        "tags": [
+          "Room APIs."
+        ],
+        "description": "This Api creates room.",
+        "parameters": [
+          {
+            "name": "roomInputParameters",
+            "in": "body",
+            "description": "Create a new Room.",
+            "schema": {
+              "$ref": "#/definitions/roomDTO"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Executed API."
+          }
+        }
+      }
+    },
+    "/room/update/{id}": {
+      "post": {
+        "tags": [
+          "Room APIs."
+        ],
+        "description": "This Api creates hotel.",
+        "parameters": [
+          {
+            "name": "inputParameters",
+            "in": "body",
+            "description": "Create a new hotel.",
+            "schema": {
+              "$ref": "#/definitions/roomDTO"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Update existing room using Id.",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Executed API."
+          }
+        }
+      }
+    },
+    "/room/delete/{id}": {
+      "get": {
+        "tags": [
+          "Room APIs."
+        ],
+        "description": "This Api deletes hotel for given Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Delete particular hotel based on Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Executed API."
+          }
+        }
+      }
+    },
+    "/user/list": {
+      "get": {
+        "tags": [
+          "User APIs."
+        ],
+        "description": "This API retrieves list of hotels.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Retrieved hotel List."
+          }
+        }
+      }
+    },
+    "/user/show/{id}": {
+      "get": {
+        "tags": [
+          "User APIs."
+        ],
+        "description": "This Api returns hotel Json for given Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Retrieve particular hotel based on Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Executed API."
+          }
+        }
+      }
+    },
+    "/user/create": {
+      "post": {
+        "tags": [
+          "User APIs."
+        ],
+        "description": "This Api creates hotel.",
+        "parameters": [
+          {
+            "name": "inputParameters",
+            "in": "body",
+            "description": "Create a new hotel.",
+            "schema": {
+              "$ref": "#/definitions/userDTO"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Executed API."
+          }
+        }
+      }
+    },
+    "/user/update/{id}": {
+      "post": {
+        "tags": [
+          "User APIs."
+        ],
+        "description": "This Api creates hotel.",
+        "parameters": [
+          {
+            "name": "inputParameters",
+            "in": "body",
+            "description": "Create a new hotel.",
+            "schema": {
+              "$ref": "#/definitions/userDTO"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Update existing hotel using Id.",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Executed API."
+          }
+        }
+      }
+    },
+    "/user/delete/{id}": {
+      "get": {
+        "tags": [
+          "User APIs."
+        ],
+        "description": "This Api deletes hotel for given Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Delete particular hotel based on Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Executed API."
+          }
+        }
+      }
+    },
+    "/booking/list": {
+      "get": {
+        "tags": [
+          "Booking APIs."
+        ],
+        "description": "This API retrieves list of Booking.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Retrieved hotel List."
+          }
+        }
+      }
+    },
+    "/booking/show/{id}": {
+      "get": {
+        "tags": [
+          "Booking APIs."
+        ],
+        "description": "This Api returns Booking Json for given Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Retrieve particular booking based on Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Executed API."
+          }
+        }
+      }
+    },
+    "/booking/create": {
+      "post": {
+        "tags": [
+          "Booking APIs."
+        ],
+        "description": "This Api creates Booking.",
+        "parameters": [
+          {
+            "name": "inputParameters",
+            "in": "body",
+            "description": "Create a new Booking.",
+            "schema": {
+              "$ref": "#/definitions/bookingDTO"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Executed API."
+          }
+        }
+      }
+    },
+    "/booking/fetchAllAvailableRooms": {
+      "post": {
+        "tags": [
+          "Booking APIs."
+        ],
+        "description": "This Api fetches all available rooms for a given date range.",
+        "parameters": [
+          {
+            "name": "inputParameters",
+            "in": "body",
+            "description": "Create a new Booking.",
+            "schema": {
+              "$ref": "#/definitions/availableRoomsDTO"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Executed API."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "hotelDTO": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "emailId": {
+          "type": "string"
+        },
+        "contactNo": {
+          "type": "string"
+        },
+        "address1": {
+          "type": "string"
+        },
+        "address2": {
+          "type": "string"
+        },
+        "area": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "userDTO": {
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailId": {
+          "type": "string"
+        },
+        "contactNo": {
+          "type": "string"
+        },
+        "address1": {
+          "type": "string"
+        },
+        "address2": {
+          "type": "string"
+        },
+        "area": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "roomDTO": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "amenities": {
+          "type": "array",
+          "items":{
+            "type":"string"
+          }
+        },
+        "hotelId": {
+          "type": "integer"
+        }
+      }
+    },
+    "bookingDTO":{
+      "properties":{
+        "userId": {
+          "type": "string"
+        },
+        "hotelId": {
+          "type": "string"
+        },
+        "roomId": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string",
+          "description":"Format (mm/dd/yyyy)"
+        },
+        "endDate": {
+          "type": "string",
+          "description":"Format (mm/dd/yyyy)"
+        }
+      }
+    },
+    "availableRoomsDTO":{
+      "properties":{
+        "hotelId": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string",
+          "description":"Format (mm/dd/yyyy)",
+          "required":true
+        },
+        "endDate": {
+          "type": "string",
+          "description":"Format (mm/dd/yyyy)",
+          "required":true
+        }
+      }
+    }
+  }
+}
