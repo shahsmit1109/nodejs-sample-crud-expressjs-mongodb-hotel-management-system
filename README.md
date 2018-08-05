@@ -15,10 +15,10 @@ Clone the repo
 git clone https://github.com/shahsmit1109/hotelmanagementsystem.git
 ```
 
-Change to the `hms` folder and install production dependencies.
+Change to the `hotelmanagementsystem` folder and install production dependencies.
 
 ```
-cd hms
+cd hotelmanagementsystem
 npm install
 ```
 
