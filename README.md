@@ -1,4 +1,4 @@
-#Hotel Management System
+# Hotel Management System
 A hotel management system build with MongoDB, Express, Node.js.
 
 ## Getting started
@@ -12,7 +12,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Installation
 Clone the repo
 ```
-git clone
+git clone https://github.com/shahsmit1109/hotelmanagementsystem.git
 ```
 
 Change to the `hms` folder and install production dependencies.
